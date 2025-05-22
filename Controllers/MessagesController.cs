@@ -19,13 +19,13 @@ namespace RedditPoster.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Message>>> GetMessages()
         {
-            return await _db.Messages.Include(m => m.Targets).ToListAsync();
+            return await _db.Messages.ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Message>> GetMessage(int id)
         {
-            var message = await _db.Messages.Include(m => m.Targets).FirstOrDefaultAsync(m => m.Id == id);
+            var message = await _db.Messages.FirstOrDefaultAsync(m => m.Id == id);
             if (message == null)
                 return NotFound();
             return message;

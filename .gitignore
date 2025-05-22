@@ -21,9 +21,6 @@ Thumbs.db
 # Logs
 *.log
 
-# Entity Framework Migrations
-Migrations/
-
 # Rider
 .idea/
 *.sln.iml

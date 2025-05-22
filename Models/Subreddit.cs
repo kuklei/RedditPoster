@@ -10,6 +10,15 @@ namespace RedditPoster.Models
         [Required]
         public string Subreddit { get; set; } = default!;
 
-        public int MessageId { get; set; }
+        [Required]
+        public string Slug { get; set; } = default!;
+
+        public bool IsActive { get; set; } = true;
+
+        public DateTime dtCreated { get; set; } = DateTime.Now;
+
+        public DateTime? LastSentAt { get; set; } // nullable, set when a message is sent
+
+        public int SentCounter { get; set; } = 0; // number of messages sent to this forum
     }
 }
